@@ -4,14 +4,10 @@ R tutorial for the chapter **Nonnegative Matrix Factorization for RNA-seq Data A
 
 This repository provides the R workflow underlying the chapter's worked examples. It introduces nonnegative matrix factorization (NMF) for exploring gene-expression data, extracting gene signatures (metagenes), and interpreting their activity across samples. The tutorial progresses from a controlled simulation to two publicly available RNA-seq datasets, connecting methodological concepts with practical analysis.
 
-## What the tutorial covers
+The workflow creates fitted NMF objects, gene-loading and component-activity matrices, lists of top-loading genes, reconstruction-error summaries, and diagnostic plots. The SEQC analysis also computes relative component exposures, Spearman correlation with known A fractions, and mean absolute error. Results remain in the R session; the script does not explicitly export tables or figures.
 
-- Preparing nonnegative expression matrices through filtering, normalization, transformation, and variable-gene selection.
-- Exploring candidate ranks and fitting NMF with multiple random initializations.
-- Interpreting gene loadings (`W`) and sample component activities (`H`).
-- Visualizing expression patterns and component activities with annotated heatmaps.
-- Assessing reconstruction error and comparing fitted components with experimental metadata or known mixture composition.
-- Exploring sensitivity to rank, feature selection, and expression scale through suggested exercises.
+The examples are intended for teaching and methodological exploration. The eight-sample `airway` analysis provides an illustration of component interpretation. In the SEQC benchmark, normalized component exposures are assessed primarily for recovery of the expected **A > C > D > B** ordering; they need not equal the physical RNA mixing fractions. Top-loading genes are candidates for biological follow-up, rather than formal differential-expression results.
+
 
 ## Worked examples
 
@@ -57,11 +53,7 @@ The script is organized into four sections:
 
 All fits use `method = "brunet"` and an explicit random seed (`20260904`). Rank surveys and repeated NMF fits may take time; their `nrun` settings are specified in the script.
 
-## Results and interpretation
 
-The workflow creates fitted NMF objects, gene-loading and component-activity matrices, lists of top-loading genes, reconstruction-error summaries, and diagnostic plots. The SEQC analysis also computes relative component exposures, Spearman correlation with known A fractions, and mean absolute error. Results remain in the R session; the script does not explicitly export tables or figures.
-
-The examples are intended for teaching and methodological exploration. The eight-sample `airway` analysis provides an illustration of component interpretation. In the SEQC benchmark, normalized component exposures are assessed primarily for recovery of the expected **A > C > D > B** ordering; they need not equal the physical RNA mixing fractions. Top-loading genes are candidates for biological follow-up, rather than formal differential-expression results.
 
 ## Reproducibility
 
